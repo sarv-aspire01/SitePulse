@@ -1,0 +1,6 @@
+targets:
+
+  - name: IITB Notices
+    category: EDUCATION
+    url: https://iitb.ac.in
+    selector: ".content"

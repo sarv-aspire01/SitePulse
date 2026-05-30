@@ -1,0 +1,11 @@
+targets:
+
+  - name: TCS Careers
+    category: MNC
+    url: https://www.tcs.com/careers
+    selector: ".content"
+
+  - name: Infosys Careers
+    category: MNC
+    url: https://www.infosys.com/careers
+    selector: ".content"

@@ -1,0 +1,15 @@
+targets:
+
+  - name: Example Recruitment
+
+    category: MNC
+
+    url: https://example.com
+
+    selector: ".content"
+
+    timeout: 30
+
+    retries: 3
+
+    severity: high

@@ -11,53 +11,62 @@ logger = get_logger()
 
 def main():
 
+    logger.info(
+        "Starting WatchTower..."
+    )
+
     targets = load_targets()
 
     logger.info(
         f"Loaded {len(targets)} targets"
     )
 
-    first_target = targets[0]
+    for target in targets:
 
-    logger.info(
-        f"Testing: {first_target.name}"
-    )
-
-    result = fetch_url(
-        first_target.url,
-        first_target.timeout
-    )
-
-    if not result.success:
-
-        logger.error(
-            "Failed to fetch page"
+        logger.info(
+            f"Checking {target.name}"
         )
 
-        return
+        result = fetch_url(
+            target.url,
+            target.timeout
+        )
 
-    soup = clean_html(
-        result.html
-    )
+        if not result.success:
 
-    items = extract_items(
-        soup,
-        first_target.selector,
-        first_target.name,
-        first_target.url
-    )
+            logger.warning(
+                f"{target.name} failed "
+                f"(status={result.status_code}) "
+                f"{result.error_message}"
+            )
 
-    logger.info(
-        f"Extracted {len(items)} items"
-    )
+            continue
 
-    for item in items[:10]:
+        soup = clean_html(
+            result.html
+        )
 
-        print()
-        print(item.title)
+        items = extract_items(
+            soup,
+            target.selector,
+            target.name,
+            target.url
+        )
 
-        if item.url:
-            print(item.url)
+        logger.info(
+            f"{target.name}: "
+            f"{len(items)} items extracted"
+        )
+
+        for item in items[:5]:
+
+            print("\n---")
+            print(
+                f"Title: {item.title}"
+            )
+            print(
+                f"URL: {item.url}"
+            )
 
 
 if __name__ == "__main__":

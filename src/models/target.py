@@ -10,3 +10,4 @@ class Target:
     timeout: int = 30
     retries: int = 3
     severity: str = "medium"
+    extraction_type: str = "links"

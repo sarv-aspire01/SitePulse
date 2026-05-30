@@ -1,10 +1,11 @@
 import logging
 
 
-def get_logger(name: str = "SitePulse"):
+def get_logger(name: str = "watchtower"):
     logger = logging.getLogger(name)
 
     if not logger.handlers:
+
         logger.setLevel(logging.INFO)
 
         formatter = logging.Formatter(

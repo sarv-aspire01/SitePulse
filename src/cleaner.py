@@ -1,9 +1,7 @@
 from bs4 import BeautifulSoup
 
 
-def clean_html(
-    html: str
-) -> BeautifulSoup:
+def clean_html(html: str) -> BeautifulSoup:
 
     soup = BeautifulSoup(
         html,

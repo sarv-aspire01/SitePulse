@@ -1,11 +1,14 @@
 import requests
+
 from models.fetch_result import FetchResult
 
 
 DEFAULT_HEADERS = {
     "User-Agent": (
-        "WatchTower/1.0 "
-        "(GitHub Actions Monitoring Bot)"
+        "Mozilla/5.0 (X11; Linux x86_64) "
+        "AppleWebKit/537.36 "
+        "(KHTML, like Gecko) "
+        "Chrome/125.0 Safari/537.36"
     )
 }
 
@@ -27,14 +30,16 @@ def fetch_url(
             html=response.text,
             status_code=response.status_code,
             response_time=response.elapsed.total_seconds(),
-            success=response.ok
+            success=response.ok,
+            error_message=""
         )
 
-    except requests.RequestException:
+    except Exception as e:
 
         return FetchResult(
             html="",
             status_code=0,
             response_time=0,
-            success=False
+            success=False,
+            error_message=str(e)
         )

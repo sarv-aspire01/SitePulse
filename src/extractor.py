@@ -1,8 +1,6 @@
 from urllib.parse import urljoin
 
-from models.monitored_item import (
-    MonitoredItem
-)
+from models.monitored_item import MonitoredItem
 
 
 def extract_items(
@@ -15,6 +13,11 @@ def extract_items(
     items = []
 
     elements = soup.select(selector)
+    print(
+        f"[DEBUG] Selector '{selector}' "
+        f"matched {len(elements)} elements"
+    )
+
 
     for element in elements:
 

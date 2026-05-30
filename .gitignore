@@ -6,6 +6,18 @@ __pycache__/
 # C extensions
 *.so
 
+# Runtime data (PRIVATE)
+data/snapshots/
+data/suppression_state.json
+data/state.json
+
+# IDE
+.vscode/
+.idea/
+
+
+# Logs
+*.log
 # Distribution / packaging
 .Python
 build/

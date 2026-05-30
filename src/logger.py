@@ -1,7 +1,7 @@
 import logging
 
 
-def get_logger(name: str = "watchtower"):
+def get_logger(name: str = "SitePulse"):
     logger = logging.getLogger(name)
 
     if not logger.handlers:

@@ -1,6 +1,0 @@
-targets:
-
-  - name: UPSC Notifications
-    category: GOV
-    url: https://upsc.gov.in
-    selector: ".content"

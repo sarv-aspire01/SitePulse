@@ -1,15 +1,17 @@
 targets:
 
-  - name: Example Recruitment
+  - name: Example
 
-    category: MNC
+    category: TEST
 
     url: https://example.com
 
-    selector: ".content"
+    selector: "a"
 
     timeout: 30
 
     retries: 3
 
     severity: high
+
+    extraction_type: links

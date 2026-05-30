@@ -1,0 +1,6 @@
+targets:
+
+  - name: Example
+    category: TEST
+    url: https://example.com
+    selector: "a"
